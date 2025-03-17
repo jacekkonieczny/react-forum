@@ -9,12 +9,14 @@ import ThreadView from "./pages/ThreadView";
 import UserProfile from "./pages/UserProfile";
 import NotFound from "./pages/NotFound";
 import "./scss/App.scss"
+import Navbar from "./components/Navbar";
 
 
 function App() {
   return (
       <div className="App">
           <Router>
+              <Navbar />
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
