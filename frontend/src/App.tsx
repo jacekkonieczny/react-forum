@@ -10,6 +10,7 @@ import UserProfile from "./pages/UserProfile";
 import NotFound from "./pages/NotFound";
 import "./scss/App.scss"
 import Navbar from "./components/Navbar";
+import Notifications from "./pages/Notifications";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                   <Route path="/category/:categoryName" element={<CategoryView />} />
                   <Route path="/category/:categoryName/thread/:id" element={<ThreadView />} />
                   <Route path="/user/:id" element={<UserProfile />} />
+                  <Route path="/notifications" element={<Notifications />} />
                   <Route path="*" element={<NotFound />} />
               </Routes>
           </Router>
