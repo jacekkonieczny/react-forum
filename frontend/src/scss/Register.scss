@@ -1,0 +1,52 @@
+.register {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    width: 50%;
+    @media (max-width: 768px) {
+      width: 80%;
+    }
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: $bg-secondary;
+    border-radius: 0.5rem;
+  }
+
+  &__title {
+    color: $text-default;
+    font-size: 1.5rem;
+    align-self: center;
+    margin-bottom: 3rem;
+  }
+
+  &__input {
+    padding: 0.5rem;
+    border: 0.1rem solid transparent;
+    border-radius: 0.5rem;
+    background-color: $bg-tertiary;
+    color: $text-default;
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+
+    &:focus {
+      outline: none;
+      border: 0.1rem solid $text-default;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    align-self: flex-end;
+    padding: 0.8rem;
+    border: none;
+    background-color: $bg-tertiary;
+    color: $text-default;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+}

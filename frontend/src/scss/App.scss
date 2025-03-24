@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "colors";
 @import "Navbar";
+@import "Register";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -48,6 +49,8 @@ table {
 
 .App {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: $bg-primary;
   font-family: "Roboto", sans-serif;
 }
