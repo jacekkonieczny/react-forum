@@ -1,4 +1,4 @@
-.register {
+.register, .login {
   flex-grow: 1;
   display: flex;
   justify-content: center;
@@ -12,6 +12,7 @@
     padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     background-color: $bg-secondary;
     border-radius: 0.5rem;
@@ -25,6 +26,8 @@
   }
 
   &__input {
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.5rem;
     border: 0.1rem solid transparent;
     border-radius: 0.5rem;
@@ -48,5 +51,24 @@
     color: $text-default;
     border-radius: 0.5rem;
     font-size: 1rem;
+
+    &:hover {
+      color: lighten($text-default, 25%);
+    }
+
+    &:active {
+      background-color: lighten($bg-tertiary, 25%);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $text-default;
+
+    &:hover {
+      span {
+        color: lighten($text-default, 25%);
+      }
+    }
   }
 }
