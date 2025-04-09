@@ -3,9 +3,9 @@ import axios from "axios";
 
 const Register = () => {
     const [formData, setFormData] = useState({
-        username: '',
-        email: '',
-        password: ''
+        username: "",
+        email: "",
+        password: ""
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
