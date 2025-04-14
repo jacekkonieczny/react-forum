@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const Register = () => {
         email: "",
         password: ""
     });
+    const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -20,6 +22,7 @@ const Register = () => {
 
         try {
             const res = await axios.post("http://localhost:7777/auth/register", formData);
+            navigate("/login");
             alert(res.data.message);
         } catch (err: any) {
             alert(err.response?.data?.message || "blad przzy rejestracji");

@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
-import {Link} from "react-router-dom";
+import React, {useContext, useState} from 'react';
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import {AuthContext} from "../context/AuthContext";
 
 const Login = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     });
+    const {login} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -21,6 +24,8 @@ const Login = () => {
         try {
             const res = await axios.post("http://localhost:7777/auth/login", formData);
             const {message, token, user} = res.data;
+            login(user, token);
+            navigate("/");
             alert(`${message} token: ${token} user: ${JSON.stringify(user)}`);
         } catch (err: any) {
             alert(err.response?.data?.message || "blad przzy logowaniu");

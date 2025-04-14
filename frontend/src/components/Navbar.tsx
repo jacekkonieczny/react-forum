@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -10,13 +10,15 @@ import {
     faHouse, faRightFromBracket,
     faUser, faXmark
 } from "@fortawesome/free-solid-svg-icons";
+import {AuthContext} from "../context/AuthContext";
 
 const Navbar = () => {
     const [isCategoriesOpen, setCategoriesOpen] = useState<boolean>(false);
     const [isProfileOpen, setProfileOpen] = useState<boolean>(false);
-    const [isLoggedIn, setLoggedIn] = useState<boolean>(true);
     const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
     const categories: string[] = ["Technology", "Science", "Gaming", "Movies", "Music", "Pets"];
+    const {user, logout} = useContext(AuthContext);
+    const isLoggedIn = !!user;
 
     return (
         <nav className="navbar">
@@ -66,10 +68,10 @@ const Navbar = () => {
                             {isProfileOpen && (
                                 <div className="navbar__profile-menu dropdown-menu">
                                     <Link className="navbar__profile-menu-item dropdown-item"
-                                          to="/user/31">Profile</Link>
+                                          to={`/user/${user?.id}`}>Profile</Link>
                                     <Link className="navbar__profile-menu-item dropdown-item"
                                           to="/notifications">Notifications</Link>
-                                    <div className="navbar__profile-menu-item dropdown-item">Log out</div>
+                                    <div className="navbar__profile-menu-item dropdown-item" onClick={logout}>Log out</div>
                                 </div>
                             )}
                         </div>
@@ -97,7 +99,7 @@ const Navbar = () => {
                                 <FontAwesomeIcon icon={faFilter} size="lg" />
                                 <span>Categories</span>
                             </Link>
-                            <Link className="navbar__mobile-menu-item" to="/user/31">
+                            <Link className="navbar__mobile-menu-item" to={`/user/${user?.id}`}>
                                 <FontAwesomeIcon icon={faUser} size="lg" />
                                 <span>Profile</span>
                             </Link>
@@ -107,7 +109,7 @@ const Navbar = () => {
                                 <FontAwesomeIcon icon={faEnvelope} size="lg" />
                                 <span>Notifications</span>
                             </Link>
-                            <div className="navbar__mobile-menu-item">
+                            <div className="navbar__mobile-menu-item" onClick={logout}>
                                 <FontAwesomeIcon icon={faRightFromBracket} size="lg" />
                                 <span>Log out</span>
                             </div>
