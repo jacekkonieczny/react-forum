@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import db from "./config/db";
 import authRoutes from "./routes/authRoutes";
+import threadsRoutes from "./routes/threadsRoutes";
 
 const app = express();
 app.use(cors());
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authRoutes);
+app.use("/threads", threadsRoutes);
 
 db.getConnection()
     .then(() => {
