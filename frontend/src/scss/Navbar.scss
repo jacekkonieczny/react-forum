@@ -67,6 +67,26 @@
     }
   }
 
+  .navbar__new-thread-link {
+    cursor: pointer;
+    padding: 0.475rem;
+    border: 0.1rem solid transparent;
+    border-radius: 0.5rem;
+    color: $text-default;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: $bg-tertiary;
+
+    &:active {
+      color: lighten($text-default, 25%);
+      background-color: lighten($bg-tertiary, 25%);
+    }
+
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+
   .navbar__auth {
     @media (max-width: 768px) {
       display: none;

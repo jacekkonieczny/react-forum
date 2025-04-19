@@ -2,6 +2,8 @@
 @import "colors";
 @import "Navbar";
 @import "Login";
+@import "ThreadCard";
+@import "NewThread";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -53,4 +55,10 @@ table {
   flex-direction: column;
   background: $bg-primary;
   font-family: "Roboto", sans-serif;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

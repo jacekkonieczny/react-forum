@@ -7,7 +7,7 @@ import {
     faChevronUp,
     faEnvelope,
     faFilter,
-    faHouse, faRightFromBracket,
+    faHouse, faPlus, faRightFromBracket,
     faUser, faXmark
 } from "@fortawesome/free-solid-svg-icons";
 import {AuthContext} from "../context/AuthContext";
@@ -48,6 +48,12 @@ const Navbar = () => {
                         )}
                     </div>
                     <input type="text" className="navbar__search" placeholder="Search"/>
+                    {isLoggedIn && (
+                        <Link className="navbar__new-thread-link" to="/new-thread">
+                            <FontAwesomeIcon icon={faPlus} size="lg" />
+                            <span>New Thread</span>
+                        </Link>
+                    )}
                 </div>
                 <div className="navbar__auth">
                     {isLoggedIn ? (

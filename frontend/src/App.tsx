@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import "./scss/App.scss"
 import Navbar from "./components/Navbar";
 import Notifications from "./pages/Notifications";
+import NewThread from "./pages/NewThread";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                   <Route path="/category/:categoryName/thread/:id" element={<ThreadView />} />
                   <Route path="/user/:id" element={<UserProfile />} />
                   <Route path="/notifications" element={<Notifications />} />
+                  <Route path="/new-thread" element={<NewThread />} />
                   <Route path="*" element={<NotFound />} />
               </Routes>
           </Router>
