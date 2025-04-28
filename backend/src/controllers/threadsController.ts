@@ -4,7 +4,7 @@ import { RowDataPacket } from "mysql2";
 
 export const getAllThreads = async (req: Request, res: Response): Promise<void> => {
     try {
-        const [rows] = await db.query("SELECT * FROM threads ORDER BY created_at DESC");
+        const [rows] = await db.query("SELECT threads.*, users.username FROM threads JOIN users ON threads.user_id = users.id ORDER BY threads.created_at DESC");
         res.json(rows);
     } catch (err) {
         res.status(500).json({ message: "blad podczas pobierania watkow", error: err });
