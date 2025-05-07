@@ -76,6 +76,9 @@
     font-size: 1rem;
     text-decoration: none;
     background-color: $bg-tertiary;
+    @media (max-width: 768px) {
+      display: none;
+    }
 
     &:active {
       color: lighten($text-default, 25%);
@@ -168,6 +171,7 @@
         text-decoration: none;
         color: $text-default;
         cursor: pointer;
+        text-align: center;
 
         span {
           font-size: 0.6rem;

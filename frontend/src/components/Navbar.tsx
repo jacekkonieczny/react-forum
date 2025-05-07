@@ -119,6 +119,12 @@ const Navbar = () => {
                                 <FontAwesomeIcon icon={faRightFromBracket} size="lg" />
                                 <span>Log out</span>
                             </div>
+                            <Link className="navbar__mobile-menu-item" to="/new-thread">
+                                <FontAwesomeIcon icon={faPlus} size="lg" />
+                                <span>New Thread</span>
+                            </Link>
+                        </div>
+                        <div className="navbar__mobile-menu-row">
                             <div className="navbar__mobile-menu-item" onClick={() => setMobileMenuOpen(false)}>
                                 <FontAwesomeIcon icon={faXmark} size="xl"/>
                                 <span>Exit</span>
