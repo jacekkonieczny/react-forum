@@ -14,7 +14,7 @@ export const getAllThreads = async (req: Request, res: Response): Promise<void> 
 export const getThreadsByCategory = async (req: Request, res: Response): Promise<void> => {
     const { category } = req.params;
     try {
-        const [rows] = await db.query("SELECT * FROM threads WHERE category_id = ?", [category]);
+        const [rows] = await db.query("SELECT threads.*, users.username FROM threads JOIN users ON threads.user_id = users.id JOIN categories ON threads.category_id = categories.id WHERE categories.title = ? ORDER BY threads.created_at DESC", [category]);
         res.json(rows);
     } catch (err) {
         res.status(500).json({ message: "blad podczas pobierania watkow w danej kategorii", error: err });
