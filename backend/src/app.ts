@@ -3,6 +3,7 @@ import cors from "cors";
 import db from "./config/db";
 import authRoutes from "./routes/authRoutes";
 import threadsRoutes from "./routes/threadsRoutes";
+import adminRoutes from "./routes/adminRoutes";
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRoutes);
 app.use("/threads", threadsRoutes);
+app.use("/admin", adminRoutes);
 
 db.getConnection()
     .then(() => {
