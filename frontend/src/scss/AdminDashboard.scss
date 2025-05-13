@@ -1,0 +1,108 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: $text-default;
+    font-size: 1.5rem;
+    align-self: center;
+    margin-top: 2rem;
+  }
+
+  &__search-input {
+    margin: 2rem 0;
+    width: 50%;
+    padding: 0.5rem;
+    border: 0.1rem solid transparent;
+    border-radius: 0.5rem;
+    background-color: $bg-tertiary;
+    color: $text-default;
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+
+    &:focus {
+      outline: none;
+      border: 0.1rem solid $text-default;
+    }
+  }
+
+  &__table {
+    width: 50%;
+    background-color: $bg-secondary;
+    color: $text-default;
+
+    &-header {
+      background-color: $bg-tertiary;
+      font-weight: bold;
+      text-align: left;
+      padding: 0.5rem;
+      border: 1px solid $text-default;
+    }
+
+    &-cell {
+      padding: 0.5rem;
+      border: 1px solid $text-default;
+    }
+
+    &-button {
+      cursor: pointer;
+      padding: 0.3rem;
+      border: 0.1rem solid transparent;
+      border-radius: 0.5rem;
+      color: $text-default;
+      text-decoration: none;
+      background-color: $bg-tertiary;
+
+      &:active {
+        color: lighten($text-default, 25%);
+        background-color: lighten($bg-tertiary, 25%);
+      }
+    }
+
+    &-select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.3rem;
+      border: 0.1rem solid transparent;
+      border-radius: 0.5rem;
+      background-color: $bg-tertiary;
+      color: $text-default;
+    }
+  }
+
+  &__pagination {
+    margin-top: 2rem;
+
+    &-info {
+      color: $text-default;
+      margin: 0 1rem;
+
+      &-input {
+        margin: 0 0.5rem;
+        padding: 0.3rem;
+        border: 0.1rem solid transparent;
+        border-radius: 0.5rem;
+        background-color: $bg-tertiary;
+        color: $text-default;
+        font-family: "Roboto", sans-serif;
+      }
+    }
+
+    &-button {
+      cursor: pointer;
+      padding: 0.3rem;
+      border: 0.1rem solid transparent;
+      border-radius: 0.5rem;
+      color: $text-default;
+      text-decoration: none;
+      background-color: $bg-tertiary;
+
+      &:active {
+        color: lighten($text-default, 25%);
+        background-color: lighten($bg-tertiary, 25%);
+      }
+    }
+  }
+}

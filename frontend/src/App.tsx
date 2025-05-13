@@ -12,6 +12,7 @@ import "./scss/App.scss"
 import Navbar from "./components/Navbar";
 import Notifications from "./pages/Notifications";
 import NewThread from "./pages/NewThread";
+import AdminDashboard from "./pages/AdminDashboard";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                   <Route path="/notifications" element={<Notifications />} />
                   <Route path="/new-thread" element={<NewThread />} />
                   <Route path="*" element={<NotFound />} />
+                  <Route path="/admin" element={<AdminDashboard/>} />
               </Routes>
           </Router>
       </div>
