@@ -27,20 +27,20 @@ const mapCategoryIdToName = (id: number): string => {
 
 const ThreadCard: React.FC<ThreadCardProps> = ({thread}) => {
     return (
-        <Link className="thread-card" to={`/category/${mapCategoryIdToName(thread.category_id)}/thread/${thread.id}`}>
-            <div className="thread-card__author">
+        <div className="thread-card">
+            <Link className="thread-card__author" to={`/profile/${thread.user_id}`}>
                 <img
                     className="thread-card__author-photo"
                     src="https://cdn.pfps.gg/pfps/1907-cat.png"
                     alt="profile picture"
                 />
                 <span className="thread-card__author-name">{thread.username}</span>
-            </div>
-            <div className="thread-card__content">
+            </Link>
+            <Link className="thread-card__content" to={`/category/${mapCategoryIdToName(thread.category_id)}/thread/${thread.id}`}>
                 <h3 className="thread-card__content-title">{thread.title}</h3>
                 <p className="thread-card__content-description">{thread.content}</p>
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
 };
 
