@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import db from "../config/db";
-import { RowDataPacket } from "mysql2";
 
 export const getAllThreads = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -24,7 +23,7 @@ export const getThreadsByCategory = async (req: Request, res: Response): Promise
 export const getThreadById = async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
-        const [rows] = await db.query("SELECT * FROM threads WHERE id = ?", [id]) as [RowDataPacket[], any];
+        const [rows]: any = await db.query("SELECT * FROM threads WHERE id = ?", [id]);
         if (rows.length === 0) {
             res.status(404).json({ message: "nie znaleziono watku" });
             return;
@@ -54,3 +53,22 @@ export const createThread = async (req: Request, res: Response): Promise<void> =
         res.status(500).json({ message: "blad podczas tworzenia watku", error: err });
     }
 };
+
+export const deleteThread = async (req: Request, res: Response): Promise<void> => {
+    const {id} = req.params;
+    const userId = (req as any).user?.id;
+    const userRole = (req as any).user?.role;
+
+    try {
+        const [threadRows]: any = await db.query("SELECT * FROM threads WHERE id = ?", [id]);
+        if (threadRows.length === 0) {
+            res.status(404).json({message: "nie znaleziono watku"});
+            return;
+        }
+        await db.query("DELETE FROM threads WHERE id = ?", [id]);
+        res.json({message: `watek o id ${id} zostal usuniety przez uzytkownika ${userId} (${userRole})`});
+    } catch (err) {
+        res.status(500).json({message: "blad podczas usuwania watku", error: err});
+    }
+};
+

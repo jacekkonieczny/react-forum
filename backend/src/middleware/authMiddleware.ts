@@ -30,6 +30,16 @@ export const isAdmin = (req: Request, res: Response, next: NextFunction): void =
     next();
 };
 
+export const isModOrAdmin = (req: Request, res: Response, next: NextFunction): void => {
+    const user = (req as any).user;
+
+    if (!user || user.role_id !== 3 && user.role_id !== 2) {
+        res.status(403).json({ message: "brak uprawnien - wymagane uprawnienia administratora lub moderatora" });
+        return;
+    }
+
+    next();
+};
 
 
 

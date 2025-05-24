@@ -27,10 +27,15 @@ const Home = () => {
         fetchThreads();
     }, [])
 
+    const handleThreadDelete = (deletedThreadId: number) => {
+        setThreads(prevThreads => prevThreads.filter(thread => thread.id !== deletedThreadId));
+    };
+
+
     return (
         <div className="home">
             {threads.map((thread) => (
-                <ThreadCard key={thread.id} thread={thread}></ThreadCard>
+                <ThreadCard key={thread.id} thread={thread} onDelete={handleThreadDelete}></ThreadCard>
             ))}
         </div>
     );

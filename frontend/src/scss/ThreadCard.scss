@@ -50,4 +50,9 @@
       margin-right: 1rem;
     }
   }
+
+  &__icon {
+    cursor: pointer;
+    color: $text-default;
+  }
 }
